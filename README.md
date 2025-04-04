@@ -1,6 +1,6 @@
 # 🧰 Project: `yazelix`
 
-> A Tokio-powered command center that listens to `yazi`, reacts with floating `helix` panes in `zellij`, and manages async coordination with style.
+> A contemporary Rust-powered development environment that listens to `yazi`, triggering window pane TUI programs to run in the foreground (i.e. `helix`, `nvchad`, or `spacemacs`), and introduces a seamless continuity between file picking and TUI-driven debugging.
 
 ---
 
