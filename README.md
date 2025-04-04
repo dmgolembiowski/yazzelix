@@ -28,12 +28,14 @@ Now, the floating pane _receives_ the selected file, and opens it in the termina
 ╰────────────────────────────────────────────────────────────╯
 ```
 It's a bit convoluted, but my initial design generally should follow the flow:
-1. Invoke `yaz` within an Alacritty terminal session (or kitty)
-2. `yaz` performs the following sequence in parallel:
-> i. Daemonize a relay socket / message bus
-> ii. Spawn `zellij` then tell it to make two additional floating pane, one of them hidden (P2), the other pinned to the foreground (P1). P1 runs a PTY of the current shell from the parent process. P2 is a standby subscriber to the relay socket, waiting for a message to become the active foreground pane. Next, once P2 receives the signal to open `helix` it sends three synchronous messages to the zellij socket. Send a message to Zellij to send P1 to the background (or make it's width and height both zero, and toggle any existing selected focus toward P2), apply the TUI process corresponding to the yazi hook onto P2's PTY region with a `process::Command`, such that when the process exits a signal is sent to the relay socket to ressurect P1.
-> iii. Apply P2's window location to the P1 pane and resume focus there.
-3. TODO: Figure out how to actually leave the process. Perhaps with `,` somewhere on path as a binary, or a transient executable created at runtime and destroyed upon invocation and process closure.
+1. Invoke `yaz` within an Alacritty terminal session (or kitty); `yaz` then performs the following sequence in parallel:
+2. Daemonize a relay socket / message bus
+3. Spawn `zellij` then tell it to make two additional floating pane, one of them hidden (P2), the other pinned to the foreground (P1). 
+4. P1 runs a PTY of the current shell from the parent process. 
+5. P2 is a standby subscriber to the relay socket, waiting for a message to become the active foreground pane. 
+6. Next, once P2 receives the signal to open `helix` it sends sequentially consistent messages to the zellij socket. Namely, send a message to Zellij to send P1 to the background (or make it's width and height both zero, and toggle any existing selected focus toward P2. And then apply the TUI process corresponding to the yazi hook onto P2's PTY region with a `process::Command`, such that when the process exits a signal is sent to the relay socket to ressurect P1.
+7. Apply P2's window location to the P1 pane and resume focus there.
+8. TODO: Figure out how to actually leave the process. Perhaps with `,` somewhere on path as a binary, or a transient executable created at runtime and destroyed upon invocation and process closure.
 ---
 
 ## ✅ Roadmap
