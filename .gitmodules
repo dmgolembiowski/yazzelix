@@ -1,9 +1,9 @@
 [submodule "zellij"]
 	path = zellij
 	url = https://github.com/dmgolembiowski/zellij.git
-[submodule "yazelix-plugin"]
-	path = yazelix-plugin
-	url = https://github.com/dmgolembiowski/yazelix-plugin.git
+[submodule "yazzelix-plugin"]
+	path = yazzelix-plugin
+	url = https://github.com/dmgolembiowski/yazzelix-plugin.git
 [submodule "yazi"]
 	path = yazi
 	url = https://github.com/dmgolembiowski/yazi.git

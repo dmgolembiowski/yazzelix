@@ -1,7 +1,88 @@
+[package]
+name = "yazzelix"
+rust-version = "1.84"
+authors = ["David Golembiowski <noreply@gmail.com>"]
+include = ["src/**/*", "README.md"]
+edition = "2021"
+version = "0.1.0-alpha"
+description = "Yazi, Zellij, Helix, oh my!"
+repository = "https://github.com/dmgolembiowski/yazelix"
+
+[[bin]]
+name = "yz"
+path = "src/main.rs"
+
+[lib]
+name = "yazzelix"
+path = "src/lib.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+clap = { workspace = true }
+interprocess = { workspace = true }
+log = { workspace = true }
+miette = { workspace = true }
+nix = { workspace = true }
+thiserror = { workspace = true }
+zellij-client = { workspace = true }
+zellij-server = { workspace = true }
+zellij-utils = { workspace = true }
+
 [workspace]
-# resolver = "2"
 members = [
-  "yazelix-plugin",
-  "yazelix-lib",
-  "yazelix-bin",
+  "yazzelix-plugin",
+  "zellij/zellij-client",
+  "zellij/zellij-server",
+  "zellij/zellij-utils",
+  "zellij/zellij-tile",
+  "zellij/zellij-tile-utils",
+  "."
 ]
+
+[workspace.dependencies]
+dialoguer = { version = "0.10.4", default-features = false }
+humantime = { version = "2.1.0", default-features = false }
+anyhow = { version = "1.0.70", default-features = false, features = ["backtrace", "std"]}
+zellij-client = { path = "zellij/zellij-client/" }
+zellij-server = { path = "zellij/zellij-server/" }
+zellij-utils  = { path = "zellij/zellij-utils/"  }
+names = { version = "0.14.0", default-features = false }
+suggest = { version = "0.4.0", default-features = false }
+clap = { version = "3.2.2", default-features = false, features = ["env", "derive", "color", "std", "suggestions"] }
+interprocess = { version = "1.2.1", default-features = false }
+log = { version = "0.4.17", default-features = false }
+miette = { version = "5.7.0", default-features = false, features = ["fancy"] }
+nix = { version = "0.23.1", default-features = false }
+lazy_static = { version = "1.4.0", default-features = false }
+libc = { version = "0.2", default-features = false, features = ["std"] }
+notify-debouncer-full = { version = "0.1.0", default-features = false }
+prost = { version = "0.11.9", default-features = false, features = ["std", "prost-derive"] }
+regex = { version = "1.5.5", default-features = false, features = ["perf", "std"] }
+serde = { version = "1.0", default-features = false, features = ["derive", "std"] }
+serde_json = { version = "1.0", default-features = false, features = ["std"] }
+signal-hook = { version = "0.3", default-features = false, features = ["iterator"] }
+strum = { version = "0.20.0", default-features = false }
+strum_macros = { version = "0.20.0", default-features = false }
+tempfile = { version = "3.2.0", default-features = false }
+termwiz = { version = "0.23.2", default-features = false }
+thiserror = { version = "1.0.40", default-features = false }
+unicode-width = { version = "0.1.8", default-features = false }
+url = { version = "2.2.2", default-features = false, features = ["serde"] }
+uuid = { version = "1.4.1", default-features = false, features = ["serde", "v4", "std"] }
+vte = { version = "0.11.0", default-features = false }
+async-std = { version = "1.3.0", default-features = false, features = ["attributes", "default", "std", "unstable"] }
+isahc = { version = "1.7.2", default-features = false, features = ["http2", "text-decoding"] }
+ansi_term = { version = "0.12.1", default-features = false }
+
+
+
+
+
+
+
+
+
+
+
+
+
