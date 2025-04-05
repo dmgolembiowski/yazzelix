@@ -1,4 +1,4 @@
-# 🧰 Project: `yazelix`
+# 🧰 Project: `yazzelix`
 
 > A contemporary Rust-powered development environment that listens to `yazi`, triggering window pane TUI programs to run in the foreground (i.e. `helix`, `nvchad`, or `spacemacs`), and introduces a seamless continuity between file picking and TUI-driven debugging.
 
@@ -16,7 +16,7 @@ Now, the floating pane _receives_ the selected file, and opens it in the termina
 
 ```text
 ╭────────────────────────────────────────────────────────────╮
-│                     yazelix `yaz`                          │
+│                    yazzelix `yaz`                          │
 │                      |                                     │
 │  ┌────────────┐      ├───────────────┐       ┌──────────┐  │
 │  │ yazi_hook  │──────▶ relay socket ├─┬─┐   | helix 🔥 │  │
